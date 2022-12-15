@@ -2,14 +2,14 @@
 #include <bits/stdc++.h>
 #include <cmath>
 using namespace std;
-int linear(int arr[],int n,int k)
+int linear(int arr[],int n,int k) //time complexity O(n)
 {
     for(int i=1;i<=n;i++){
         if(arr[i]==k){return i;}
     }
     return -1;
 }
-int binary(int arr[],int s,int e,int k)
+int binary(int arr[],int s,int e,int k)  //time complexity O(logn)
 {  // sort(arr,arr+n);
   //  int s=0,e=n;
     while(s<=e)
@@ -22,7 +22,7 @@ else if(arr[mid]>k){e=mid-1;}
     }
     return -1;
 }
-int jump(int arr[],int n,int k)
+int jump(int arr[],int n,int k)  //time complexity O(sqrt(n))
 {sort(arr,arr+n);
     int lo=0,hi=sqrt(n);
     if(arr[hi]<=k&&hi>lo){lo=hi;
@@ -34,7 +34,7 @@ int jump(int arr[],int n,int k)
     }
     return -1;
 }
-int interpolation(int arr[],int lo,int hi,int k)
+int interpolation(int arr[],int lo,int hi,int k)  //time complexity O(log(logn)))
 {
    // int lo=0,hi=n;
     int pos=lo+((k-arr[lo])*(hi-lo))/(arr[hi]-arr[lo]);
@@ -43,7 +43,7 @@ int interpolation(int arr[],int lo,int hi,int k)
     else if(arr[pos]<k){return interpolation(arr,pos+1,hi,k);}
     return -1;
 }
-int exponential(int arr[],int n,int k)
+int exponential(int arr[],int n,int k)  //time complexity O(logn)
 {
     if(arr[0]==k){return 0;}
   int  i=1;
